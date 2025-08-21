@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 SL Dating - Find Your Perfect Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💕 SL Dating</h1>
+            <p>Find your perfect match in Second Life</p>
+        </header>
+
+        <!-- Login/Signup Section -->
+        <div id="auth-section" class="section">
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showLogin()">Login</button>
+                <button class="tab-btn" onclick="showSignup()">Sign Up</button>
+            </div>
+            
+            <div id="login-form" class="form-container">
+                <h2>Welcome Back!</h2>
+                <input type="text" id="login-username" placeholder="Username" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+            </div>
+            
+            <div id="signup-form" class="form-container hidden">
+                <h2>Create Profile</h2>
+                <input type="text" id="signup-username" placeholder="SL Username" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="number" id="signup-age" placeholder="Age" min="18" max="100" required>
+                <textarea id="signup-bio" placeholder="Tell us about yourself..." maxlength="500"></textarea>
+                <input type="url" id="signup-photo" placeholder="Photo URL (optional)">
+                <button onclick="signup()">Create Profile</button>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="app-section" class="section hidden">
+            <nav class="bottom-nav">
+                <button class="nav-btn active" onclick="showBrowse()">🔍 Browse</button>
+                <button class="nav-btn" onclick="showMatches()">💕 Matches</button>
+                <button class="nav-btn" onclick="showProfile()">👤 Profile</button>
+                <button class="nav-btn" onclick="logout()">🚪 Logout</button>
+            </nav>
+
+            <!-- Browse Section -->
+            <div id="browse-section" class="content-section">
+                <div class="profile-card" id="current-profile">
+                    <div class="profile-image">
+                        <img id="profile-img" src="https://via.placeholder.com/300x400/ff69b4/white?text=No+Photo" alt="Profile Photo">
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="profile-name">Loading...</h3>
+                        <p id="profile-age"></p>
+                        <p id="profile-bio"></p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="pass-btn" onclick="passProfile()">❌ Pass</button>
+                        <button class="like-btn" onclick="likeProfile()">❤️ Like</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matches Section -->
+            <div id="matches-section" class="content-section hidden">
+                <h2>Your Matches 💕</h2>
+                <div id="matches-list" class="matches-grid">
+                    <!-- Matches will be populated here -->
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile-section" class="content-section hidden">
+                <h2>Your Profile</h2>
+                <div class="profile-edit">
+                    <img id="my-profile-img" src="https://via.placeholder.com/200x200/ff69b4/white?text=No+Photo" alt="Your Photo">
+                    <input type="text" id="edit-username" placeholder="Username" readonly>
+                    <input type="number" id="edit-age" placeholder="Age" min="18" max="100">
+                    <textarea id="edit-bio" placeholder="Bio" maxlength="500"></textarea>
+                    <input type="url" id="edit-photo" placeholder="Photo URL">
+                    <button onclick="updateProfile()">Update Profile</button>
+                </div>
+            </div>
+
+            <!-- Chat Modal -->
+            <div id="chat-modal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="chat-partner-name">Chat</h3>
+                        <button class="close-btn" onclick="closeChat()">×</button>
+                    </div>
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="message-input" placeholder="Type a message..." onkeypress="handleEnter(event)">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
