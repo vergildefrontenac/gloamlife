@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff6b9d, #c44569, #f8b500);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+header {
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.section {
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Auth Styles */
+.auth-tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: #ff6b9d;
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #c44569;
+    margin-bottom: 10px;
+}
+
+input, textarea, button {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    background: #ff6b9d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #c44569;
+    transform: translateY(-2px);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    display: flex;
+    border-top: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 15px 5px;
+    border: none;
+    background: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn.active {
+    background: #ff6b9d;
+    color: white;
+}
+
+/* Profile Card */
+.profile-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 80px;
+}
+
+.profile-image {
+    height: 400px;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    padding: 20px;
+}
+
+.profile-info h3 {
+    font-size: 1.5em;
+    color: #c44569;
+    margin-bottom: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+}
+
+.pass-btn, .like-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pass-btn {
+    background: #ff4757;
+    color: white;
+}
+
+.like-btn {
+    background: #2ed573;
+    color: white;
+}
+
+.pass-btn:hover, .like-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Matches Grid */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.match-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+}
+
+.match-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.match-card .info {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Profile Edit */
+.profile-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.profile-edit img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: center;
+    border: 5px solid #ff6b9d;
+}
+
+/* Chat Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    height: 80%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background: #ff6b9d;
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    background: #ff6b9d;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message.received {
+    background: #f0f0f0;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    margin: 0;
+}
+
+.chat-input button {
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    .bottom-nav {
+        max-width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-card {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Match notification */
+.match-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2ed573;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    text-align: center;
+    z-index: 3000;
+    animation: matchPop 3s ease-out forwards;
+}
+
+@keyframes matchPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
